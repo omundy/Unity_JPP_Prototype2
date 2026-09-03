@@ -4,8 +4,31 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public InputAction moveAction;
+    public Vector2 moveInput;
+    public float speed = 10f;
+    public float xRange = 10f;
+    public GameObject projectilePrefab;
+    public InputAction fireAction;
 
-    void Start() { }
+    void Start()
+    {
+        moveAction.Enable();
+        fireAction.Enable();
+    }
 
-    void Update() { }
+    void Update()
+    {
+        if (transform.position.x < -xRange)
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        if (transform.position.x > xRange)
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        moveInput = moveAction.ReadValue<Vector2>();
+        transform.Translate(Vector3.right * moveInput.x * Time.deltaTime * speed);
+
+        if (fireAction.triggered)
+        {
+            
+            
+        }
+    }
 }
