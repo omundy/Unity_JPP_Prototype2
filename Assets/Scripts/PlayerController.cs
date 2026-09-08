@@ -27,8 +27,7 @@ public class PlayerController : MonoBehaviour
 
         if (fireAction.triggered)
         {
-            
-            
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
     }
 }
