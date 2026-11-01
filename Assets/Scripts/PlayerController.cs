@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public InputAction moveAction;
-    public Vector2 moveInput;
+    [SerializeField] Vector2 moveInput;
     public float speed = 10f;
     public float xRange = 10f;
     public GameObject projectilePrefab;
